@@ -4,4 +4,4 @@
 ![Logical Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/diagram.jpg)
 
 # Data Flow Diagram
-![Logical Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/dataflowdiagram.jpg)
+![Data Flow Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/dataflowdiagram.jpg)
