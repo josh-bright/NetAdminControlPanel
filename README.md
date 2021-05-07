@@ -1,6 +1,15 @@
-# Network Admin Control Panel
+# Overview
 
 This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a web interface. This project can be evolved to include many different configuration options in a multi-vendor environment.
+
+# Table of Contents
+
+ 1. [Logical Diagram](https://github.com/josh-bright/NetAdminCP#logical-diagram)
+ 2. [Data Flow Diagram](https://github.com/josh-bright/NetAdminCP#data-flow-diagram)
+ 3. [Services Used](https://github.com/josh-bright/NetAdminCP#services-used)
+ 4. [5 Pillars of Azure Well Architected Framework](https://github.com/josh-bright/NetAdminCP#5-pillars-of-azure-well-architected-framework)
+ 5. [Deployment](https://github.com/josh-bright/NetAdminCP#deployment)
+ 6. [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions)
 
 # Logical Diagram
 ![Logical Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/images/logicaldiagram.jpg)
