@@ -15,7 +15,6 @@ $webhookName = "ConfigurePortSecurity-Webhook"
 $webhookExpiryTime = "5/7/2025"
 $webAppName = "NetAdminCP-" + (Get-Random -Maximum 999999)
 
-
 ## Create Resource Group
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
