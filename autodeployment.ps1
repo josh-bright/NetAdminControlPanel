@@ -60,5 +60,4 @@ cd ./NetAdminCP/azwebapp/
 az webapp up --resource-group $resourceGroup --location $location --name $webAppName --html
 
 ## Notify user that deployment has finished
-Write-Output "Automatic deployment finished. You may close this Cloud Shell session."
-
+Write-Output "Automatic deployment finished. Please refer to step 7. You may close this Cloud Shell session."
