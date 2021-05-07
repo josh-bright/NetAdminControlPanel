@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a web interface. This project can be evolved to include many different configuration options in a multi-vendor environment.
+This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment.
 
 # Table of Contents
 
