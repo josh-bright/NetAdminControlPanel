@@ -163,6 +163,6 @@ Configuration of network device information can be changed in the python runbook
 # Future Revisions
 - Change authentication method to be more secure, using a solution such as Azure AD and allow for more users.
 - Allow easier configuration of network devices to configure.
-- Enable logging of commands issues using the web panel.
+- Enable logging of commands issued using the web panel.
 - Create a more redundant configuration of Azure and on-premises resources.
 - Add a template page to make it easier for users to adapt this project to their own needs with minimal knowledge.
