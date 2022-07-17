@@ -1,6 +1,8 @@
 # Overview
 
-This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment.
+This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment. 
+
+Please note, I created this for a college course as a final project with limited time. There are definitely ways this could be improved -- please see the [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions) section for further information on this.
 
 # Table of Contents
 
