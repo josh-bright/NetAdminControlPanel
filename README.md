@@ -1,6 +1,6 @@
 # Overview
 
-This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment. 
+This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud-hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment. 
 
 Please note, I created this for a college course as a final project with limited time. There are definitely ways this could be improved -- please see the [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions) section for further information on this.
 
@@ -9,7 +9,7 @@ Please note, I created this for a college course as a final project with limited
  1. [Logical Diagram](https://github.com/josh-bright/NetAdminCP#logical-diagram)
  2. [Data Flow Diagram](https://github.com/josh-bright/NetAdminCP#data-flow-diagram)
  3. [Services Used](https://github.com/josh-bright/NetAdminCP#services-used)
- 4. [5 Pillars of Azure Well Architected Framework](https://github.com/josh-bright/NetAdminCP#5-pillars-of-azure-well-architected-framework)
+ 4. [5 Pillars of Azure Well-Architected Framework](https://github.com/josh-bright/NetAdminCP#5-pillars-of-azure-well-architected-framework)
  5. [Deployment](https://github.com/josh-bright/NetAdminCP#deployment)
  6. [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions)
 
@@ -24,26 +24,26 @@ Please note, I created this for a college course as a final project with limited
  - Log Analytics
 	 - Enables Azure to connect with the on-premises device in order to use the hybrid runbook worker.
  - Automation Account
-	 - Manages the hybrid runbook worker and python runbook.
+	 - Manages the hybrid runbook worker and Python runbook.
  - Hybrid Runbook Worker
-	 - Receives jobs from the Azure Automation Account and executes them on the local machine. This allows for configuration of on-premises networking devices.
+	 - Receives jobs from the Azure Automation Account and executes them on the local machine. This allows for the configuration of on-premises networking devices.
  - Python 3 Runbook
-	 - Holds the script neccesary to configure on-premises networking devices. Receives data from a webhook that contains specific configurations.
+	 - Holds the script necessary to configure on-premises networking devices. Receives data from a webhook that contains specific configurations.
  - App Service
-	 - Hosts the public facing web panel, enabling the user to input configuration parameters to be passed via webhook to the on-premises device.
+	 - Hosts the public-facing web panel, enabling the user to input configuration parameters to be passed via webhook to the on-premises device.
 
 ## On-Premises
 - Ubuntu Server 18.04 VM
-	- Acts as an intermediary between the Azure resources and on-premises networking device.
+	- Acts as an intermediary between the Azure resources and on-premises networking devices.
 - Python 3
 	- Netmiko module
-		- Enables python scripts to connect to networking devices using SSH and pass configuration commands.
+		- Enables Python scripts to connect to networking devices using SSH and pass configuration commands.
 
-# 5 Pillars of Azure Well Architected Framework
+# 5 Pillars of Azure Well-Architected Framework
 ## Cost Optimization
-This deployment, by default mainly utilizes free and pay-as-you-go plans inorder to minimize the cost of such a simple application. These options can be easily changed if a more robust solution is neccesary.
+This deployment, by default mainly utilizes free and pay-as-you-go plans in order to minimize the cost of such a simple application. These options can be easily changed if a more robust solution is necessary.
 ## Operational Excellence
-By allowing less knowledgable network administrators or lower level systems administrators to change network device configurations using a web panel, this application promotes operational excellence in the workplace.  
+By allowing less knowledgeable network administrators or lower-level systems administrators to change network device configurations using a web panel, this application promotes operational excellence in the workplace.  
 ## Performance Efficiency
 As configured, this application utilizes mainly PaaS cloud infrastructure. Azure PaaS solutions use a shared pool of resources and are never limited to a single instance. This enables the user to focus more of their efforts towards the on-premises devices.
 ## Reliability
@@ -52,7 +52,7 @@ As previously mentioned, this application is built using Azure PaaS solutions. S
 This application requires the user to authenticate twice. Once to access the web panel, and once when submitting configuration changes over SSH. The second authentication ensures that even if the web panel authentication is circumvented, the user must have valid SSH credentials before configuring a network device. 
 
 # Deployment
-Since this project involves on-premises resources, some manual configuration is required. Throughout the Azure PowerShell deployment script ([autodeployment.ps1](https://github.com/josh-bright/NetAdminCP/blob/main/autodeployment.ps1)) it will pause to allow you to configure the neccesary on-premises resource before continuing.
+Since this project involves on-premises resources, some manual configuration is required. Throughout the Azure PowerShell deployment script ([autodeployment.ps1](https://github.com/josh-bright/NetAdminCP/blob/main/autodeployment.ps1)) it will pause to allow you to configure the necessary on-premises resource before continuing.
 
 **Note: You MUST follow the process exactly as detailed below. If you do not, the Azure environment will not be configured correctly!**
 
@@ -85,7 +85,7 @@ OR
     pip3 install netmiko
 
 ### [Install PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804)
-PowerShell core is neccesary to enable the hybrid runbook worker (which will be configured later) to execute the python script.
+PowerShell core is necessary to enable the hybrid runbook worker (which will be configured later) to execute the Python script.
 
     # Install pre-requisite packages.
     sudo apt-get install -y wget apt-transport-https software-properties-common
@@ -155,16 +155,16 @@ After the automatic deployment of Azure resources has finished, you must configu
 Using the panel on the right side, navigate to the ``portsecurity.html`` file. Once opened, use CTRL+F to find the string ``ENTER_WEBHOOK_URI_HERE``. Replace this test with the previously saved webhook URI. This change is automatically saved and you may close the window.
 
 ## Step 8 - Access the Web Panel
-To access the web panel, navigate to the App Service created by the script. Under the essentials header in the middle of the screen, click on the URL (ending in .azurewebsites.net). This will take you to the login page. The default credentials are are follows.
+To access the web panel, navigate to the App Service created by the script. Under the essentials header in the middle of the screen, click on the URL (ending in .azurewebsites.net). This will take you to the login page. The default credentials are as follows.
 Username: ``net_admin``
 Password: ``P@ssw0rd!123``
 
 ## Step 9 - Handoff
-Configuration of network device information can be changed in the python runbook and HTML of the page. Login credentials may be configured in the ``login-page.js`` file. As this is a proof of concept, it requires more configuration to work for your specific needs. In the future, I would like to make this more user friendly and easy to adapt to any environment with minimal configuration.
+Configuration of network device information can be changed in the Python runbook and HTML of the page. Login credentials may be configured in the ``login-page.js`` file. As this is a proof of concept, it will require additional configuration to work for your specific needs like adding the details of your network devices into ``ConfigurePortSecurity.py``.
 
 # Future Revisions
-- Change authentication method to be more secure, using a solution such as Azure AD and allow for more users.
-- Allow easier configuration of network devices to configure.
+- Change the method of authentication to be more secure, potentially using Azure AD, and allow for more users.
+- Allow easier modification of the network devices that can be configured.
 - Enable logging of commands issued using the web panel.
 - Create a more redundant configuration of Azure and on-premises resources.
 - Add a template page to make it easier for users to adapt this project to their own needs with minimal knowledge.
