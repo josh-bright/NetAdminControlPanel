@@ -2,7 +2,7 @@
 Script to deploy the neccesary Azure services to host a network admin control panel. 
 Created: 5/6/2021
 Author: Joshua Bright 
-https://github.com/josh-bright/NetAdminCP
+https://github.com/josh-bright/NetAdminControlPanel
 #>
 
 ## Set variables (DO NOT REMOVE GET-RANDOM COMMANDS)
@@ -37,7 +37,7 @@ Read-Host "Please refer to step 5. Once finished, press ENTER to continue"
 $hybridWorkerGroupName = (Get-AzureRMAutomationHybridWorkerGroup -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName).Name
 
 ## Clone the GitHub repo into a local directory for easy access
-git clone https://github.com/josh-bright/NetAdminCP.git ./NetAdminCP
+git clone https://github.com/josh-bright/NetAdminControlPanel.git ./NetAdminCP
 
 ## Import python3 runbook
 Import-AzAutomationRunbook -Path ./NetAdminCP/ConfigurePortSecurity.py -Name $runbookName -Type Python3 -ResourceGroupName $resourceGroup -AutomationAccountName $automationAccountName
