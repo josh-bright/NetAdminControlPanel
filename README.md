@@ -2,21 +2,21 @@
 
 This repository contains a proof of concept network admin control panel that makes it easy to configure an on-premises Cisco switch using a cloud-hosted web interface. This project can be evolved to include many different configuration options in a multi-vendor environment. 
 
-Please note, I created this for a college course as a final project with limited time. There are definitely ways this could be improved -- please see the [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions) section for further information on this.
+Please note that this was created as a final project for my Cloud Computing undergraduate course with a one-week notice. There are definitely ways this could be improved, some of which I've detailed under the [Future Revisions](https://github.com/josh-bright/NetAdminControlPanel#future-revisions) section.
 
 # Table of Contents
 
- 1. [Logical Diagram](https://github.com/josh-bright/NetAdminCP#logical-diagram)
- 2. [Data Flow Diagram](https://github.com/josh-bright/NetAdminCP#data-flow-diagram)
- 3. [Services Used](https://github.com/josh-bright/NetAdminCP#services-used)
- 4. [5 Pillars of Azure Well-Architected Framework](https://github.com/josh-bright/NetAdminCP#5-pillars-of-azure-well-architected-framework)
- 5. [Deployment](https://github.com/josh-bright/NetAdminCP#deployment)
- 6. [Future Revisions](https://github.com/josh-bright/NetAdminCP#future-revisions)
+ 1. [Logical Diagram](https://github.com/josh-bright/NetAdminControlPanel#logical-diagram)
+ 2. [Data Flow Diagram](https://github.com/josh-bright/NetAdminControlPanel#data-flow-diagram)
+ 3. [Services Used](https://github.com/josh-bright/NetAdminControlPanel#services-used)
+ 4. [5 Pillars of Azure Well-Architected Framework](https://github.com/josh-bright/NetAdminControlPanel#5-pillars-of-azure-well-architected-framework)
+ 5. [Deployment](https://github.com/josh-bright/NetAdminControlPanel#deployment)
+ 6. [Future Revisions](https://github.com/josh-bright/NetAdminControlPanel#future-revisions)
 
 # Logical Diagram
-![Logical Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/images/logicaldiagram.jpg)
+![Logical Diagram](https://github.com/josh-bright/NetAdminControlPanel/blob/main/images/logicaldiagram.jpg)
 # Data Flow Diagram
-![Data Flow Diagram](https://github.com/josh-bright/NetAdminCP/blob/main/images/dataflowdiagram.jpg)
+![Data Flow Diagram](https://github.com/josh-bright/NetAdminControlPanel/blob/main/images/dataflowdiagram.jpg)
 
 # Services Used
 ## Azure
@@ -52,7 +52,7 @@ As previously mentioned, this application is built using Azure PaaS solutions. S
 This application requires the user to authenticate twice. Once to access the web panel, and once when submitting configuration changes over SSH. The second authentication ensures that even if the web panel authentication is circumvented, the user must have valid SSH credentials before configuring a network device. 
 
 # Deployment
-Since this project involves on-premises resources, some manual configuration is required. Throughout the Azure PowerShell deployment script ([autodeployment.ps1](https://github.com/josh-bright/NetAdminCP/blob/main/autodeployment.ps1)) it will pause to allow you to configure the necessary on-premises resource before continuing.
+Since this project involves on-premises resources, some manual configuration is required. Throughout the Azure PowerShell deployment script ([autodeployment.ps1](https://github.com/josh-bright/NetAdminControlPanel/blob/main/autodeployment.ps1)) it will pause to allow you to configure the necessary on-premises resource before continuing.
 
 **Note: You MUST follow the process exactly as detailed below. If you do not, the Azure environment will not be configured correctly!**
 
@@ -106,7 +106,7 @@ PowerShell core is necessary to enable the hybrid runbook worker (which will be 
     sudo apt-get install -y powershell
 
 ## Step 2 - Configure the Auto Deployment Script Variables
-Copy the [autodeployment.ps1](https://github.com/josh-bright/NetAdminCP/blob/main/autodeployment.ps1) file into a text editor of your choice. Configure the variables at the top of the file to meet your naming and location needs.
+Copy the [autodeployment.ps1](https://github.com/josh-bright/NetAdminControlPanel/blob/main/autodeployment.ps1) file into a text editor of your choice. Configure the variables at the top of the file to meet your naming and location needs.
 
 ## Step 3 - Run the Auto Deployment Script
 After configuring the variables, open Cloud Shell in the Azure Portal. *If you do not already have a storage account configured to use Cloud Shell, follow the onscreen prompt to create one.*
