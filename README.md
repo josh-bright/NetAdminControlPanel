@@ -152,7 +152,7 @@ After you have ensured it has been saved, return to the Azure Cloud Shell and pr
 ## Step 7 - Paste in the Webhook URI
 After the automatic deployment of Azure resources has finished, you must configure the webhook URI on the PortSecurity.html page. To do this, access the App Service Editor by navigating to it in the Azure Portal. It can be found in the newly created App Service, under Development Tools -> App Service Editor (Preview).
 
-Using the panel on the right side, navigate to the ``portsecurity.html`` file. Once opened, use CTRL+F to find the string ``ENTER_WEBHOOK_URI_HERE``. Replace this test with the previously saved webhook URI. This change is automatically saved and you may close the window.
+Using the panel on the right side, navigate to the ``portsecurity.html`` file. Once opened, use CTRL+F to find the string ``ENTER_WEBHOOK_URI_HERE``. Replace this placeholder text with the previously saved webhook URI. This change is automatically saved and you may close the window.
 
 ## Step 8 - Access the Web Panel
 To access the web panel, navigate to the App Service created by the script. Under the essentials header in the middle of the screen, click on the URL (ending in .azurewebsites.net). This will take you to the login page. The default credentials are as follows.
